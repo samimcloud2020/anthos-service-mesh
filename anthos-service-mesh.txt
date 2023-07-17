@@ -36,3 +36,4 @@ and security for you, minimizing manual user maintenance.
 
 With the managed data plane enabled, Google installs an in-cluster controller that manages the sidecar proxies for you.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------In-cluster control plane---------------------------------------------------------------------------------------------
