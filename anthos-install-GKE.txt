@@ -1,0 +1,23 @@
+The GKE cluster must be Standard. 
+----------------------------------------------------------------------------------------------------------
+Autopilot clusters are only supported with managed Anthos Service Mesh.
+-------------------------------------------------------------------------------------------------------------
+A machine type that has at least 4 vCPUs, such as e2-standard-4. otherwise (Migrating workloads to different machine types.)
+--------------------------------------------------------------------------------------------------------------
+The minimum number of nodes depends on your machine type. Anthos Service Mesh requires at least 8 vCPUs. 
+If the machine type has 4 vCPUs, your cluster must have at least 2 nodes. If the machine type has 8 vCPUs, the cluster only needs 1 node. 
+
+otherwise Resizing a cluster.
+---------------------------------------------------------------------------------------------------------------------
+GKE Workload Identity is required. We recommend that you enable Workload Identity before installing Anthos Service Mesh.
+Enabling Workload Identity changes the way calls from your workloads to Google APIs are secured.
+
+------------------------------------------------------------------------------------------------------------------------
+Optional but recommended, enroll the cluster in a release channel. We recommend that you enroll in the Regular release channel 
+because other channels might be based on a GKE version that isn't supported with Anthos Service Mesh 1.17.3.
+---------------------------------------------------------------------------------------------------------------------------
+If you are installing Anthos Service Mesh on a private cluster, you must open port 15017 in the firewall to get the webhooks 
+used for automatic sidecar injection and configuration validation to work.
+---------------------------------------------------------------------------------------------------------------------------
+Ensure that the client machine that you install Anthos Service Mesh from has network connectivity to the API server.
+----------------------------------------------------------------------------------------------------------------------------
