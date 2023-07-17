@@ -1,0 +1,38 @@
+-----------------------------------Traffic management-------------------------------------------------------------------------------------------
+Anthos Service Mesh controls the flow of traffic between services, into the mesh (ingress), and to outside services (egress).
+You configure and deploy Istio-compatible custom resources to manage this traffic at the application (L7) layer. For example, with the custom resources, you can:
+
+----------Create canary and blue-green deployments.----------------------------
+----------Provide fine-grained control over specific routes for services.------
+----------Configure load balancing between services.---------------------------
+----------Set up circuit breakers.---------------------------------------------
+
+Anthos Service Mesh maintains a service registry of all services in the mesh by name and by their respective endpoints.
+It maintains the registry to manage the flow of traffic (for example, Kubernetes Pod IP addresses).
+By using this service registry, and by running the proxies side-by-side with the services, the mesh can direct traffic to the appropriate endpoint.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------Security benefits-------------------------------------------------------------------------------
+Mitigates risk of replay or impersonation attacks that use stolen credentials. Anthos Service Mesh relies on mutual TLS (mTLS) certificates to authenticate peers,
+rather than bearer tokens such as JSON Web Tokens (JWT).
+
+Ensures encryption in transit. Using mTLS for authentication also ensures that all TCP communications are encrypted in transit.
+
+Ensures that only authorized clients can access a service with sensitive data, irrespective of the network location of the client and the application-level credentials.
+
+Mitigates the risk of user data breach within your production network. You can ensure that insiders can only access sensitive data through authorized clients.
+
+Identifies which clients accessed a service with sensitive data. Anthos Service Mesh access logging captures the mTLS identity of the client in addition to the IP address.
+
+All in-cluster control plane components and proxies use FIPS 140-2 validated encryption modules.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------Deployment options-------------------------------------------------------------------------------------------------------
+Managed Anthos Service Mesh
+
+In-cluster control plane
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------Managed Anthos Service Mesh-------------------------------------------------------------------------------------------
+Managed Anthos Service Mesh consists of the managed control plane and the managed data plane. With managed Anthos Service Mesh, Google handles upgrades, scaling, 
+and security for you, minimizing manual user maintenance. 
+
+With the managed data plane enabled, Google installs an in-cluster controller that manages the sidecar proxies for you.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
