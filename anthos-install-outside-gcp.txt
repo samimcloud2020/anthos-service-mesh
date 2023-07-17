@@ -1,0 +1,26 @@
+Ensure that the user cluster that you install Anthos Service Mesh on has at least 4 vCPUs, 15 GB memory, and 4 nodes.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+With Anthos Service Mesh 1.11 and later, all clusters must be registered to a fleet, and fleet workload identity must be enabled. You can either setup up the clusters yourself, 
+
+or 
+
+you can let asmcli register the clusters as long as they meet the following requirements.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------GKE:-----------------------------------------------------------------------------------------------------------------------------
+(applies to in-cluster and managed Anthos Service Mesh) Enable GKE Workload Identity on your Google Kubernetes Engine cluster, 
+if it is not already enabled. Additionally, you must register the cluster using fleet Workload Identity.
+
+----------------------------------------Anthos clusters outside Google Cloud: -----------------------------------------------------------------------------
+(applies to in-cluster Anthos Service Mesh) Anthos clusters on VMware, Anthos clusters on bare metal, Anthos clusters on AWS, and Anthos clusters on Azure
+are automatically registered to your project fleet at cluster creation time.
+As of Anthos 1.8, all these cluster types automatically enable fleet Workload Identity when registered. 
+Existing registered clusters are updated to use fleet Workload Identity when they are upgraded to Anthos 1.8.
+
+------------------------------------------Amazon EKS clusters:-----------------------------------------------------------------------------------------------
+(applies to in-cluster Anthos Service Mesh) The cluster must have a public IAM OIDC Identity Provider.
+Follow the instructions in Create an IAM OIDC provider for your cluster to check if a provider exists, and create a provider if necessary.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+When you run asmcli install, you specify the project ID of the fleet host project. asmcli registers the cluster if it isn't already registered.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
