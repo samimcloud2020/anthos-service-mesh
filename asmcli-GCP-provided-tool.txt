@@ -1,0 +1,25 @@
+---------------------------------------------------------asmcli----------------------------------------------------------------------
+The asmcli is a Google-provided tool that you can use to install or upgrade Anthos Service Mesh. 
+If you let it, asmcli will configure your project and cluster as follows:
+
+Grant you the required Identity and Access Management (IAM) permissions on your Google Cloud project.
+
+Enable the required Google APIs on your Google Cloud project.
+
+Set a label on the cluster that identifies the mesh.
+
+Create a service account that lets data plane components, such as the sidecar proxy, securely access your project's data and resources.
+
+Register the cluster to the fleet if it isn't already registered.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Just include the --enable_all flag when you run asmcli to let it configure your project and cluster.
+------------------------------------------------------------------------------------------------------------------------------------------------
+Note: By default, asmcli doesn't install an ingress gateway with the control plane. 
+
+For production deployments, we recommend that you install gateways separately.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+You use asmcli install for new installations and upgrades.
+
+$asmcli install
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
